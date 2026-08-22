@@ -1,0 +1,9 @@
+magick montage * -geometry 200x200 -tile 1x50 -background transparent -filter Catrom
+
+-geometry 200x200 - Output Resolution
+-tile 1x50 - tile layout
+-filter Catrom - how it downscales
+
+magick montage -tile 51x1 -geometry 100x100 -background transparent * output.png
+800x450
+magick montage -tile 28x1 -geometry 800x450 -background transparent * output.png

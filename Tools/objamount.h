@@ -1,0 +1,16 @@
+#define Hmodels -1
+#define Htextures -1
+#define Hbuildings -1
+#define Hsigns -1
+#define Hui -1
+#define Hfonts -1
+#define Hbillboards -1
+#define Henviroments -1
+#define Hdungeon1 -1
+#define Hdungeon2 -1
+#define Hdungeon3 -1
+#define Hdungeon4 -1
+#define Hdetail -1
+#define Hanimated -1
+#define Hinside -1
+#define Hfullscreen -1
