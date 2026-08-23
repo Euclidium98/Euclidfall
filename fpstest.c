@@ -35,13 +35,13 @@ const int windowY = 450*2;
 
 
 // ----- MOVEMENT
-void probecontrols();
-void probecontrolsUI();
-char probecontrolsUImenu(unsigned char UIoptionINTs, unsigned char UIoptionINTsSIDE);
+void probecontrols(); // handles inputs for controls during 3D 
+void probecontrolsUI(); // handles inputs for controls during 2D
+char probecontrolsUImenu(unsigned char UIoptionINTs, unsigned char UIoptionINTsSIDE); // newer version of previous, for menus
 char CurrentMenuOption = 0;
 char CurrentMenuOptionSide = 0;
-long archingX = 1;
-long archingZ = 1;
+long archingX = 1; // Current zone/chunk the character is in
+long archingZ = 1; // Current zone/chunk the character is in
 float *Px;
 float *Py;
 float *Pz;
@@ -56,7 +56,7 @@ Vector3 *newCamPos;
 Vector3 oldLookPos;
 Vector3 *newLookPos;
 
-void IncreaseValue(unsigned int KeyPress, unsigned char *ptr, unsigned char ArrayLocation, unsigned maxamount);
+void IncreaseValue(unsigned int KeyPress, unsigned char *ptr, unsigned char ArrayLocation, unsigned maxamount); // i think this is for probecontrolsUImenu
 
 void Constant3DInit(unsigned char UsingChunkCheck);
 
@@ -66,17 +66,18 @@ Vector3 LookDelta = {0,0,0};
 #endif
 
 // ----- MALLOCSTUFF
-void malloccalls();
-void freemalloc();
+void malloccalls(); // ram allocation along with intialising
+void freemalloc(); // frees all the ram
 int mapfilesize = 0;
 unsigned char *mapdata;
 unsigned char *mapdata2;
-void postGLcalls();
-int FilesInDir(const char *path);
+void postGLcalls(); // same as mallccalls but takes place after the GPU has intialised
+int FilesInDir(const char *path); // not used
 unsigned char *RandomArray;
 
 // ----- STACK THINGS????
 
+// all of these are defined in filecounter.exe
 Model Buildings[Hbuildings]  = { 0 };
 Texture2D billboardTs[Htextures];
 Model MiscModels[Hmodels];
@@ -97,11 +98,11 @@ Texture2D FullscreenGraphic[Hfullscreen];
 
 // ----- UI STUFF
 
-void renderUI();
-void renderShopUI();
+void renderUI(); // renders UI for 3D
+void renderShopUI(); 
 void miningUI();
 void mapUI();
-void showlimbdamage();
+void showlimbdamage(); // shows the person in the menu
 char UIState = 0;
 char UIShopType = 0;
 char UIShopeLocalLocation = 0;
@@ -124,8 +125,8 @@ char* ReturnItemName(
 	unsigned char IT9);
 char* ReturnItemNameInventory(unsigned char LocationInventory);
 int InventorySelection = 0;
-void DrawAnimated(Texture2D TheTextureAnime, Vector2 AnimePlacement, int AnimeScale, int AnimeFrame, int AnimeFrameMax);
-void DrawAnimated2(Texture2D TheTextureAnime, Vector2 AnimePlacement, int AnimeScale, int AnimeFrame, int AnimeFrameMax);
+void DrawAnimated(Texture2D TheTextureAnime, Vector2 AnimePlacement, int AnimeScale, int AnimeFrame, int AnimeFrameMax); // looping animation
+void DrawAnimated2(Texture2D TheTextureAnime, Vector2 AnimePlacement, int AnimeScale, int AnimeFrame, int AnimeFrameMax); // non looping animation
 void renderClock(Vector2 ClockLoc);
 unsigned char* MaxFramesData;
 
@@ -192,7 +193,7 @@ void UnequipItem(unsigned char WeaponTypeToUnequip);
 
 // ----- MAP 
 
-int townamount = 0;
+int townamount = 0; // this changes depending on the amount of towns in the map file
 char *towndata;
 int mapsquareroot;
 void chunkcheck(int chunksize);
@@ -200,8 +201,8 @@ int chuncksize = 100;
 void theboundingbox(int bounding);
 void moveboxstuff();
 long XYcord(long XXYcord, long YXYcord);
-void chunkrender();
-int renderdistance = 5; // 5
+void chunkrender(); // this is for rendering the chunks
+int renderdistance = 5; // 5 by default, can be changed higher
 void chunkanswer(unsigned char chunkanswerchar, int archingCX, int archingCZ, long seedthing);
 void chunkanswerbillboard(unsigned char chunkanswerchar, int archingCX, int archingCZ, long seedthing);
 void DrawTown(char TownType, int ACX, int ACZ, int PLX, int PLZ);
@@ -242,9 +243,9 @@ Model SignModel;
 Model DoorModel;
 
 
-void CallModel(Model modelitself, char type, Vector3 Loc, float scaley, char ModelData);
+void CallModel(Model modelitself, char type, Vector3 Loc, float scaley, char ModelData); // places a simple model
 BoundingBox TranslateBoundingBox(BoundingBox box, Vector3 translation);
-Color Lcolor(Color Wanted);
+Color Lcolor(Color Wanted); // changes colour depending on time of day to simulate lighting
 // ---- NPC
 void NPCcalc();
 
